@@ -1,0 +1,27 @@
+Options +FollowSymLinks
+Options -Indexes
+
+<Files ~ "^\.gitignore$">
+	Order allow,deny
+	Deny from all
+</Files>
+
+<Files ~ "^README$">
+	Order allow,deny
+	Deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Force removal of 'www.' in domain name
+	#RewriteCond %{HTTP_HOST} !^domain.tld$ [NC]
+	#RewriteRule ^(.*)$ http://domain.tld$1 [R,L]
+
+	# Clean up PHP URLs
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{THE_REQUEST} ^GET\ /[^?\s]+\.php
+	RewriteRule (.*)\.php$ /$1 [L,R=301]
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>

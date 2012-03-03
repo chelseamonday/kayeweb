@@ -1,0 +1,35 @@
+PHP / Smarty / jQuery Site Template
+================================================================================
+
+
+
+Standard Branches
+--------------------------------------------------------------------------------
+NOTES: All branches that get pushed to GitHub must follow this naming pattern.
+Client-only branches do not have to follow this rule
+
+master    - Production-ready release code *only*
+dev       - Primary development branch
+hotfix-x  - Numbered / named hotfix branch
+feature-x - Named feature working branch
+exp-x     - Named experimental branch
+
+
+
+Project Layout
+--------------------------------------------------------------------------------
+NOTES: Folders beginning with and underscore are considered develpment
+documentation and are not to be pushed to live servers.  '.htaccess' files
+should be left in place to ensure that no data leak occurs if any of these
+folders are accidentally pushed to a live production server.
+
+_db/    - Database design files (MySQL Workbench projects, SQL scripts, etc)
+_doc/   - General design documentation (charts, diagrams, wireframes, etc)
+_ui/    - Masters for UI elements (PSD files, etc)
+_ut/    - Unit tests
+cfg/    - Configuration includes (database connection strings, API tokens, etc)
+css/    - CSS files
+img/    - Images files
+js/     - JavaScript files
+lib/    - PHP libraries (Smarty, custom libraries, etc)
+tpl/    - Smarty template files
